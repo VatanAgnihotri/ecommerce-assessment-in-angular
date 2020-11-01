@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.0.
 
+# Setup Steps
+
+1. Clone/Download the project and run npm i command inside the project.
+2. After all the dependencies are installed, run ng serve --open command to test.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
