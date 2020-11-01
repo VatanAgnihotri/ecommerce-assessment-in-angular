@@ -1,0 +1,70 @@
+<div id="wrapper">
+  <div class="container1">
+    <div style="overflow: scroll;height: 100%;width:100%;" class="order">
+      <h2>Your order summary</h2>
+      <div *ngFor="let item of cartData" class="item">
+        <img [src]='item.image' alt=''>
+        <div class="info">
+          <h4>{{item.name}}</h4>
+          <p class="quantity">Quantity:- {{item.quantity}}</p>
+          <p class="price">{{item.price}}</p>
+        </div>
+      </div>
+
+      <h4 class="ship">Shipping: FREE</h4>
+      <hr>
+      <h3 class="total">TOTAL: {{total | async}}</h3>
+    </div>
+  </div>
+
+  <div class="container2">
+    <div class="checkout">
+      <div class="payment">
+        <div class="content">
+          <div class="infos">
+            <div class="method">
+              <h2>Choose a payment method</h2>
+              <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/1978060/visa.png' alt='' class="visa">
+              <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/1978060/mastercard.png' alt='' class="mastercard">
+              <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/1978060/paypal.png' alt='' class="paypal">
+            </div>
+            <div class="cardNumber">
+              <p class="title">Credit card number</p><br>
+              <input type="text" (input)="cardNumber('one')" [(ngModel)]="payload['one']" maxlength="4" #one
+                class="number">
+              <input type="text" (input)="cardNumber('two')" maxlength="4" [(ngModel)]="payload['two']" #two
+                class="number">
+              <input type="text" (input)="cardNumber('three')" maxlength="4" [(ngModel)]="payload['three']" #three
+                class="number">
+              <input type="text" (input)="cardNumber('four')" maxlength="4" [(ngModel)]="payload['four']" #four
+                class="number">
+            </div>
+            <div class="cardHolderName">
+              <p class="title">Card holder name</p>
+              <input type="text" [(ngModel)]="payload['name']">
+            </div>
+            <div class="expiration">
+              <p class="title">Expiration date</p>
+              <select placeholder="Month" [(ngModel)]="payload['date']">
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+              </select>
+
+              <select placeholder="Year" [(ngModel)]="payload['year']">
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+              </select>
+            </div>
+            <div class="security">
+              <p class="title">Security PIN</p>
+              <input type="text" [(ngModel)]="payload['pin']">
+            </div>
+            <button (click)="check()">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

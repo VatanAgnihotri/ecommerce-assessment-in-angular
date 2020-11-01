@@ -1,0 +1,24 @@
+<div data-cart class="cart panel panel-primary no-corners expanded">
+  <div class="panel-heading no-corners">
+    <h3 *ngIf="cartItems?.length">Your cart</h3>
+    <h3 *ngIf="!cartItems?.length">Your cart is empty</h3>
+  </div>
+  <div *ngIf="cartItems?.length" style="overflow: scroll;height: 400px;" data-cart-items-container class="panel-body">
+    <div data-cart-item *ngFor="let data of cartItems" class="cart-item row">
+      <div class="col-md-6">
+        <div class="thumbnail">
+          <img [src]="data.image" alt="thumbnail">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h4>{{data.name}}</h4>
+        <p> <input type="tel" class="qty" (input)="checkQuantity($event,data)" [(ngModel)]="data.quantity" /> x
+          {{data.price}}</p>
+        <!-- <h5>Total:- $24.99</h5> -->
+        <button class="btn btn-warning" (click)="removeItem(data,$event)" data-cart-remove>Remove</button>
+      </div>
+    </div>
+    <h3 style="text-align: end;">Subtotal:- {{total}}</h3>
+    <button *ngIf="cartItems?.length" class="btn btn-warning" routerLink="/checkout" data-cart-remove>CheckOut</button>
+  </div>
+</div>

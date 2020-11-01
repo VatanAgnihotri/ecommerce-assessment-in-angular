@@ -1,0 +1,17 @@
+<div id="f-navbar">
+  <div class="container">
+    <div style="margin-top: 15px;" class="row row2">
+      <div class="col-sm-2">
+        <img routerLink="/" style="height: 100px;margin-top:-30px ;" src="../../assets/images/logoo.png">
+      </div>
+      <div class="col-sm-8 col-xs-11">
+      </div>
+      <div *ngIf="showCart | async" class="col-sm-2">
+        <a>
+          <i (click)="openCart($event)" class="fa fa-shopping-cart" style="font-size:48px;color:white"></i>
+          <div *ngIf="count | async" class="_2dcihZ">{{count | async}}</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
